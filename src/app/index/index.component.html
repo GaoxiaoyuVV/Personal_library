@@ -1,0 +1,10 @@
+<div id="wapper" [ngClass]="{'mini-padding': menuType==='mini', 'normal-padding': menuType==='normal'}">
+  <app-navigation [menuType]="menuType"></app-navigation>
+  <div id="page-wapper" class="gray-bg">
+    <app-header (changeMenuType)="changeType($event)"></app-header>
+    <div class="fadeInRight">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

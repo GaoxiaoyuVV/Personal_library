@@ -1,0 +1,122 @@
+@keyframes fade {
+  0% {
+    opacity: 0
+  }
+
+  ;
+
+  25% {
+    opacity: 0.25
+  }
+
+  ;
+
+  50% {
+    opacity: 0.5
+  }
+
+  ;
+
+  70% {
+    opacity: 0.75
+  }
+
+  ;
+
+  100% {
+    opacity: 1
+  }
+
+  ;
+
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1
+  }
+
+  ;
+
+  25% {
+    opacity: 0.75
+  }
+
+  ;
+
+  50% {
+    opacity: 0.5
+  }
+
+  ;
+
+  70% {
+    opacity: 0.25
+  }
+
+  ;
+
+  100% {
+    opacity: 0
+  }
+
+  ;
+
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  opacity: 0;
+}
+
+.hide {
+  opacity: 0;
+  animation: fadeout 0.35s linear;
+}
+
+.open {
+  opacity: 1;
+  animation: fade 0.35s linear;
+}
+
+.dialog-modal-common(@width, @min-width, @min-height, @max-height, @margin-top) {
+  position: relative;
+  margin: auto;
+  margin-top: @margin-top;
+  width: @width;
+  min-width: @min-width;
+  min-height: @min-height;
+  max-height: @max-height;
+  padding-bottom: 15px;
+  background: #fff;
+  z-index: 10002;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+
+  .dynamic-content {
+    background: #fff;
+  }
+}
+
+.dialog-header {
+  padding: 15px;
+  width: 100%;
+  min-height: 20px;
+
+  .header-title {
+    display: inline-block;
+    font-size: 18px;
+  }
+
+  .header-times-icon {
+    float: right;
+  }
+}
+
+.dynamic-dialog-modal {
+  .dialog-modal-common(600px, 300px, 350px, 550px, 5%);
+}

@@ -1,0 +1,61 @@
+<div class="search-input" *ngIf="settings['searchable']">
+  <input type="text" placeholder="Search..." (keyup)="applyFilter($event.target.value)">
+</div>
+<div class="commonTable">
+  <table class="table" cellspacing="0px">
+    <thead>
+      <tr>
+        <th *ngFor="let header of settings.header">
+          <span *ngIf="!settings['sortable']">
+            {{header.label}}
+          </span>
+          <a class="sort-icon-link" *ngIf="settings['sortable']" name="{{header['value']}}" (click)="sortTable($event)">
+            <span style="padding-right: 10px;">{{header['label']}}</span>
+            <i class="fa fa-sort"></i>
+          </a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let column of settings.tbodyData">
+        <td *ngFor="let row of settings.header">
+          {{column[row['value']]}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="table-footer" *ngIf="settings.pager">
+    <div class="table-footer-item">
+      <span class="pagination-info">{{settings.startIndex}} - {{settings.endIndex}} of {{settings['total']}}</span>
+    </div>
+    <div class="table-footer-pageination">
+      <ul>
+        <li class="footable-page-arrow " *ngIf="!preDisabled">
+          <a data-page="first" (click)="pageChange('first');">
+            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li class="footable-page-arrow " *ngIf="!preDisabled">
+          <a data-page="prev" (click)="pageChange(settings['currentPage'] - 1);">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li class="footable-page" [ngClass]="{'active': settings['currentPage'] === page}"
+          *ngFor="let page of settings.displayPageList; let i=index;">
+          <a data-page="nav" *ngIf="page !== 'next' && page !== 'pre'" (click)="pageChange(page)">{{page}}</a>
+          <a *ngIf="page === 'next' || page === 'pre'" (click)="showMorePage(page, 4)">...</a>
+        </li>
+        <li class="footable-page-arrow" *ngIf="!nextDisabled">
+          <a data-page="next" (click)="pageChange(settings['currentPage'] + 1);">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li class="footable-page-arrow" *ngIf="!nextDisabled">
+          <a data-page="last" (click)="pageChange('last');">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
