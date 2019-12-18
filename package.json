@@ -23,6 +23,7 @@
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
     "rxjs": "~6.4.0",
+    "serialize-javascript": "^2.1.2",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
