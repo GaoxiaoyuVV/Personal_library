@@ -5,4 +5,172 @@ body {
   font-family: "Microsoft YaHei" !important;
   margin: 0;
   padding: 0;
+
+  #topoOutside {
+    height: 100%;
+    width: 100%;
+
+    svg {
+      height: 100%;
+      width: 100%;
+      margin: auto;
+      display: block;
+
+      .links {
+        .path {
+          fill: none;
+          stroke: #aaa;
+          stroke-width: 2px;
+          opacity: 0.25;
+          cursor: pointer;
+        }
+
+        .service-fw {
+          stroke: red;
+        }
+
+        .service-lb {
+          stroke: limegreen;
+        }
+
+        .service-ext {
+          stroke: steelblue;
+        }
+      }
+
+      .node {
+        text {
+          stroke: #848383;
+          font-size: 9px;
+          font-weight: 100;
+          font-style: normal;
+        }
+      }
+    }
+
+    .local {
+      stroke: #fff;
+      stroke-width: 1px;
+      fill: deepskyblue;
+    }
+
+    .nonlocal {
+      stroke: #fff;
+      stroke-width: 1px;
+      fill: darkorange;
+    }
+
+    .mark {
+      stroke-width: 1px;
+      fill: deepskyblue;
+    }
+
+    .unmark {
+      stroke-width: 1px;
+      fill: #aaa !important;
+    }
+
+    .root {
+      stroke: #fff;
+      stroke-width: 1px;
+      fill: lightgray;
+    }
+
+    .tenant {
+      stroke: #fff;
+      stroke-width: 1px;
+      fill: deepskyblue;
+    }
+
+    .extenant {
+      stroke: #fff;
+      stroke-width: 1px;
+      fill: steelblue;
+    }
+
+    .l2 {
+      stroke: #fff;
+      stroke-width: 1px;
+      fill: darkorange;
+    }
+
+    .leaf {
+      stroke: #fff;
+      stroke-width: 1px;
+      fill: darkorange;
+    }
+
+    .fw {
+      fill: url(#fw);
+    }
+
+    .ext {
+      fill: url(#ext);
+    }
+
+    .router {
+      fill: url(#leaf);
+    }
+
+    .host {
+      fill: url(#host);
+    }
+
+    .lock {
+      fill: url(#lock);
+    }
+
+    .error {
+      fill: url(#error);
+    }
+
+    .offline {
+      fill: url(#offline);
+    }
+
+    .lb {
+      fill: url(#lb);
+    }
+
+    circle.selected {
+      stroke-width: 4px;
+      stroke: black;
+    }
+
+    path.select_path {
+      /*stroke-dasharray: 6,8;*/
+      stroke: red;
+    }
+
+    .btn-group {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .btn {
+      cursor: pointer;
+      margin: 2px;
+      padding: 10px 15px;
+      border: none;
+      background-color: lightblue;
+    }
+
+    .tooltip {
+      position: absolute;
+      padding: 10px 15px;
+      font-weight: bold;
+      color: white;
+      background: #333;
+      border: 0px;
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    .pen {
+      stroke: #aaa;
+      stroke-width: 8px;
+      opacity: 0.3;
+    }
+  }
 }
